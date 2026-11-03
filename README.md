@@ -1,43 +1,32 @@
-# ZELQ AI — Interactive Project Showcase
+# ZELQ AI
 
-A lightweight, responsive static website featuring **NEXUS**, **Spurel** and **Atlas**, retaining the approved ZELQ AI logo and homepage design.
+A fast, static interactive showcase for NEXUS, Spurel (RAG retrieval), and Atlas.
 
-## What's in V2
+## Interactive demos
 
-- NEXUS: interactive simulated AI workflow and prompt explorer
-- Spurel: simulated retrieval inspector with vector, keyword and hybrid ranking modes, Top K, and document chunk details
-- Atlas: animated document ingestion pipeline simulator with run, pause and reset
-- Scroll-triggered reveals, ambient animations, reading progress indicator and sticky navigation
-- Project card detail views and links to each interactive demo
-- Responsive desktop and mobile layout, plus reduced-motion support
+- **NEXUS** — sample workflow exploration for knowledge, tools and model routing
+- **Spurel** — sample retrieval rankings, document chunks and retrieval modes
+- **Atlas** — animated sample ingestion and indexing pipeline
+- Scroll reveals, ambient animation, project cards and responsive mobile layout
 
-**Important:** The experiences are **illustrative concept demos with synthetic sample data**, not production screenshots or connected backend tools. They make no live requests to AI, databases, search services or document stores. Atlas is in planning; Spurel is pre-alpha; NEXUS is in active development.
+All demos use **synthetic example data** and are not connected to production backends. Atlas is in planning; Spurel is pre-alpha; NEXUS is actively being developed.
 
 ## Run locally
 
-Everything needed is embedded in `index.html` (CSS, JavaScript, selected ZELQ AI logo, favicon).
+Open `index.html` in a browser, or:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Open http://localhost:4173 in your browser. Alternatively, double-click `index.html` to view directly.
+Then visit http://localhost:4173.
 
-## Deploy to Oracle Always Free VPS
+## Oracle VPS deployment
 
-Serve `index.html` with Nginx from your existing Oracle VM. The site needs **no Node.js process**, database, paid services or API keys.
+See the [Oracle deployment guide](deploy/README.md) and [Nginx server configuration](deploy/nginx-zelq-ai.conf).
 
-1. Clone or pull this repo on the server and copy `index.html` to your Nginx website root.
-2. Point the domain's DNS A record to the VM public IP.
-3. Configure Nginx to serve the page and allow ports 80 and 443 in the Oracle security rules and VM firewall.
-4. Use Certbot/Let's Encrypt for HTTPS.
+The site is a single self-contained HTML file, so **no Node.js process, database, or build step** is required. Nginx serves the home page at `/` (without a visible `.html` extension) and applies gzip compression for efficient delivery.
 
-Publishing to GitHub does not deploy the site on the Oracle VPS.
+**Minification is not a security boundary:** client-side code remains inspectable in the browser and this repository is public. Do not put private tokens, API secrets, or sensitive business logic into the site.
 
-## Source projects
-
-- [NEXUS](https://github.com/summiya/nexus) — AI workspace
-- [Spurel](https://github.com/summiya/spurel) — RAG retrieval observability and evaluation workbench
-- [Atlas](https://github.com/summiya/Atlas) — planned distributed ingestion and search system
-
-The demo dashboards are **not** screenshots of these projects and their sample metrics are not genuine performance claims.
+**Source repositories:** [NEXUS](https://github.com/summiya/nexus), [Spurel](https://github.com/summiya/spurel), [Atlas](https://github.com/summiya/Atlas).
